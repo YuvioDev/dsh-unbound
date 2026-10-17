@@ -1,10 +1,19 @@
-# DSH Unbound · 模型破甲与本地限制调整
+# DSH Unbound · 模型破甲，掌控你的工作流
 
-**面向 DeepSeek-V4.1-Flash 1017 的模型破甲插件，在 DeepSeek Harness 中管理提示词注入、宿主限制调整与补丁恢复。**
+**专为 DeepSeek-V4.1-Flash 1017 打造的模型破甲插件。自定义提示词，调整本地限制，让模型交互与工具执行更贴合你的工作流。**
 
 DSH Unbound 将提示词配置和本地宿主补丁集中到同一入口，用于调整系统提示词组合、部分审批流程、沙箱及工具执行路径，并提供补丁状态查看、还原、规则与技能管理以及授权演练工具。
 
 这里的“破甲”指提示词与本地宿主层面的行为调整，不是重新训练模型，也不改变模型服务提供方的服务器配置。实际响应仍受模型、服务端策略、上下文及工具环境影响；项目不承诺解除全部限制，也不以模型自称“可以做到”作为能力验证。
+
+![DSH Unbound 功能架构示意](media/overview.png)
+
+## 为什么选择 DSH Unbound
+
+- **面向 1017 适配**：围绕明确的模型与宿主组合维护，减少版本选择的困扰。
+- **配置与执行集中管理**：提示词、宿主补丁、规则和技能在同一入口配置。
+- **补丁状态清晰可查**：按类别查看用途与状态，遇到问题可导出诊断并尝试还原补丁。
+- **已有验证依据**：维护者反馈，在其实际使用环境中表现稳定；1.0.0 的 22 项自动检查已在 Windows、Linux 的 Node.js 20/22 四组环境通过。个人使用反馈和自动检查各有适用范围，详见 [验证范围](SUPPORT.md)。
 
 ## 核心功能
 
@@ -20,9 +29,7 @@ DSH Unbound 将提示词配置和本地宿主补丁集中到同一入口，用�
 
 按提示词、代码、工具分类查看补丁数量、编号、用途与状态，支持应用和还原。已应用、跳过、未匹配应分别判断；“已就绪”只表示本地识别结果，不表示模型行为及全部工具均已验证。还原补丁不会撤销已经发生的文件修改、网络请求或外部操作。
 
-![补丁管理：分类数量、应用与还原](screenshots/dark.png)
-
-![工具补丁明细：逐项用途与状态](screenshots/patch-details.png)
+![补丁管理流程：查看、应用、诊断与还原](media/patch-workflow.png)
 
 ### 规则、技能与授权演练
 
@@ -43,28 +50,38 @@ DSH Unbound 将提示词配置和本地宿主补丁集中到同一入口，用�
 模型标识与宿主版本是两个不同维度。本版围绕上述组合维护，其他组合不在已验证范围内。验证范围与限制见 [SUPPORT.md](SUPPORT.md)。
 
 
-## 安装
+## 安装与开始使用
 
-从 [v1.0.0 发布页](https://github.com/baihangyu486-blip/dsh-unbound/releases/tag/v1.0.0) 下载安装包并核对 SHA256。
+**首次使用可直接安装 DSH Unbound，无需先安装 dsh-purge 或其他同类插件。** 安装前需已具备上表所列的 DeepSeek Harness，并能在终端使用 `dsh` 命令。
 
-1. 在插件管理中停用已有的 dsh-purge，完全退出 DSH。
-2. 安装：
+1. 从 [v1.0.0 发布页](https://github.com/baihangyu486-blip/dsh-unbound/releases/tag/v1.0.0) 下载 `dsh-unbound-1.0.0.tgz`，按随附 SHA256 文件核对完整性。
+2. 完全退出 DSH，在终端执行以下命令。请把示例路径替换为安装包的实际路径：
 
 ```powershell
 dsh plugin --profile desktop add "C:\path\to\dsh-unbound-1.0.0.tgz"
 ```
 
-Web 使用 `--profile web`。
+   使用 Web profile 时，将 `--profile desktop` 改为 `--profile web`。请选择实际使用的 profile，不必两者都安装。
 
-3. 启动 DSH，启用 DSH Unbound。若未登记插件，在源码目录执行：
+3. 启动 DSH 并启用 DSH Unbound，打开 **Unbound → 设置 → 补丁管理**。首次应用前保留同版宿主及必要配置的备份，核对目标宿主后应用补丁，并按提示完全退出、重新启动 DSH。
+4. 在 **提示词** 中保存自己的配置，新建对话检查所需交互和工具是否正常。外部工具需根据各自要求另行配置。
+
+提示词保存在 `$DSH_HOME/prompt-inject.md`。安装不覆盖已有提示词；后续更新使用对应版本的本地安装包。
+
+<details>
+<summary>已安装同类插件，或安装后未出现入口</summary>
+
+仅当同一 profile 已启用 dsh-purge 等会修改相同宿主文件的插件时，先停用重复插件，避免并行应用相同补丁。它们不是 DSH Unbound 的安装依赖，不需要为安装本插件而先行安装。
+
+如果包已安装但尚未登记到 profile，可从发布页下载并解压源码包，在源码目录运行：
 
 ```powershell
 node scripts/activate-profile.mjs --profile desktop
 ```
 
-4. 打开 **Unbound → 设置**，核对宿主路径后应用补丁，完全退出并重新打开 DSH。
+Web profile 使用 `--profile web`。脚本要求对应 profile 中已安装 DSH Unbound，会先备份 profile 清单，再登记本插件并移除同一清单中的重复旧插件登记；它不会删除旧插件文件。完成后重启 DSH。
 
-首次应用前保留同版宿主备份。提示词保存在 `$DSH_HOME/prompt-inject.md`，安装不覆盖已有内容。使用本地安装包更新。
+</details>
 
 ## 来源、贡献与许可
 
