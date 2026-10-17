@@ -6,7 +6,7 @@ let code=fs.readFileSync(path.join(root,'vendor/client.upstream.js'),'utf8').rep
 function replaceOnce(old,next){if(code.split(old).length!==2)throw Error('Build anchor mismatch: '+old.slice(0,80));code=code.replace(old,next)}
 replaceOnce('window.__ModuleLoader__.load({ id: "dsh-purge"','window.__ModuleLoader__.load({ id: "dsh-unbound"');
 replaceOnce('const name = "dsh-purge";','const name = "dsh-unbound";');
-replaceOnce('const AUTH_KEY = "dsh-purge-drill-auth";', 'const AUTH_KEY = "dsh-unbound-drill-ack-2026-10-17.3";');
+replaceOnce('const AUTH_KEY = "dsh-purge-drill-auth";', 'const AUTH_KEY = "dsh-unbound-drill-ack-2026-10-17.4";');
 const escapeHtml=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const usage=fs.readFileSync(path.join(root,'USAGE.md'),'utf8').replace(/\r\n/g,'\n');
 const legalHtml=usage.trim().split(/\r?\n\s*\r?\n/).map(block=>block.startsWith('# ')?'<h3>'+escapeHtml(block.slice(2))+'</h3>':block.startsWith('## ')?'<h3>'+escapeHtml(block.slice(3))+'</h3>':'<p>'+escapeHtml(block)+'</p>').join('\n');
