@@ -37,7 +37,7 @@ DSH Unbound 安装包包含技能说明，不包含外部工具二进制或工�
 
 ### FOFA_KEY 怎么拿（要能指导用户）
 1. 登录 <https://fofa.info> → 右上角头像 → **个人中心 → API Key**；
-2. 个人版限额：10,000 次查询/月、1 秒 1 次并发（**脚本与技能都按 1 秒 1 次限速，不要调高**，超了会触发 45012 封禁）；
+2. 查询额度、速率限制及错误码以实际账户和服务方当前说明为准，不应将历史配额视为所有用户的统一额度；
 3. 拿到后可以自测：`curl -s "https://fofa.info/api/v1/info/my?key=<KEY>"` —— 返回 `"error":false` 即有效。
 
 ### VPS 怎么准备（要能指导用户）
@@ -62,11 +62,10 @@ ssh -i $DSH_HOME/redteam/toolkit/vps/id_rsa -o BatchMode=yes <user>@<ip> 'echo o
 #    用 redteam_preflight 复核，看 available 列表里实际有哪些技能
 ```
 
-> 工具二进制与 nuclei 模板库的体检由工具箱里的 `redteam-setup.sh --check` 负责
-> （npm 版不含该脚本，见第一节）。
+> 本插件不附带工具箱体检脚本；工具与模板的可用性须按实际环境核对，不能以本地标记代替验证。
 ## 四、最后一步：写完成标记并复核
 
-配置补齐后，写完成标记（有工具箱脚本时脚本 `--yes` 会自动写；没有就手动写）：
+完成实际核验后，可记录本机配置状态；标记本身不证明工具可用：
 
 ```bash
 mkdir -p "$DSH_HOME/redteam" && date -Is > "$DSH_HOME/redteam/.setup-complete"
@@ -75,7 +74,7 @@ mkdir -p "$DSH_HOME/redteam" && date -Is > "$DSH_HOME/redteam/.setup-complete"
 然后**再跑一次 `redteam_preflight`**，确认：`onboarding.complete=true`、`broken` 为空或只剩用户明确接受降级的项。
 把最终结论按"能用什么 / 缺什么 / 缺的影响是什么"三条报给用户。
 
-**改了 `$DSH_HOME/.env` 后必须重启 dsh web**，否则当前进程读不到新的环境变量——
+**改了 `$DSH_HOME/.env` 后需重启实际使用的 DSH 进程**，否则当前进程读不到新的环境变量——
 这一步要明确告诉用户（智能体不能替他重启）。
 
 ## 五、用户就是不给某些资源时（降级口径）

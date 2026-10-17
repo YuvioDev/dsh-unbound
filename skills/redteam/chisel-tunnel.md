@@ -9,12 +9,12 @@ enabled: true
 # chisel（HTTP 隧道 / 端口转发）
 
 > **先加载 VPS 配置**：本技能里所有 `$REDTEAM_VPS_HOST` / `$VPS_USER` 都来自本机配置，
-> 首次由 `bash $DSH_HOME/redteam/setup.sh` 写入 `$DSH_HOME/.env`。每条命令前先 source 一次：
+> 配置须由用户按实际环境准备；本插件不附带 `setup.sh`。以下命令仅适用于已核验来源的本机配置文件：
 > ```bash
 > set -a; . "$DSH_HOME/.env" 2>/dev/null || . "$HOME/.dsh/.env"; set +a
 > VPS_USER="${REDTEAM_VPS_USER:-ubuntu}"; VPS="$REDTEAM_VPS_HOST"
 > ```
-> 没配过就跑一次 `setup.sh`（技能 `redteam-setup`），它同时会验证 SSH 连通性与载荷服务。
+> 未配置时先查阅技能 `redteam-setup` 并报告缺失项，不要调用不存在的安装脚本，也不要假定连接或服务已经可用。
 
 `chisel` 把 TCP 流量封进 **HTTP/WebSocket**，因此**最容易穿过只放行 80/443 的出网策略与反向代理**。
 它和 suo5 的分工：

@@ -9,9 +9,11 @@ enabled: true
 # 外部信息收集流水线（ProjectDiscovery）
 
 把"一个域名"变成"一份带标题、技术栈、端口的存活资产清单"，是信息收集阶段的标准动作。
-四个工具**有固定顺序**：先枚举子域 → 再解析 → 再探端口 → 再判存活 → 最后抓页面与接口。
+该示例按以下顺序组织：先枚举子域 → 再解析 → 再探端口 → 再判存活 → 最后抓页面与接口。
 
-## 本机工具
+## 工具配置参考
+
+下列路径与版本来自示例环境，不代表当前安装状态或最新版本；本插件不附带这些工具。
 
 | 工具 | 路径 | 版本 | 作用 |
 | --- | --- | --- | --- |
@@ -19,7 +21,7 @@ enabled: true
 | dnsx | `$DSH_HOME/redteam/toolkit/dnsx/dnsx` | v1.3.1 | 批量解析、DNS 爆破、泛解析过滤 |
 | naabu | `$DSH_HOME/redteam/toolkit/naabu/naabu` | v2.6.1 | 高速端口扫描（SYN 需 root，否则 `-scan-type c`） |
 | httpx | `$DSH_HOME/redteam/toolkit/httpx/httpx`（包装器 `~/.local/bin/pd-httpx`） | v1.12.0 | HTTP 存活/标题/技术栈/状态码 |
-| katana | ❌ 未安装（如需抓取用技能 `browser-automation`） | — | 爬虫抓页面与接口 |
+| katana | 需另行配置 | — | 爬虫抓页面与接口 |
 | ksubdomain | `$DSH_HOME/redteam/toolkit/ksubdomain/ksubdomain` | v0.7 | 无状态子域爆破（比 dnsx 爆破快） |
 | OneForAll | `$DSH_HOME/redteam/toolkit/oneforall/OneForAll-0.4.5/`（源码，需 `.venv`） | v0.4.5 | 子域收集全家桶（字典大，慢但全） |
 

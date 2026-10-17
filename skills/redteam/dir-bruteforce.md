@@ -18,7 +18,7 @@ enabled: true
 | --- | --- | --- | --- |
 | **feroxbuster** | `/usr/bin/feroxbuster` | 2.13.1 | Rust，递归爆破最强，自动跟随目录层级，**首选** |
 | **ffuf** | `/usr/bin/ffuf` | 2.1.0-dev | 最快、最灵活，支持多字典/vhost/参数 fuzz |
-| **dirsearch** | `$DSH_HOME/redteam/toolkit/dirsearch/dirsearch` | v0.5.0 | Python。`setup.sh` 不下载，需自行放到该路径 |
+| **dirsearch** | `$DSH_HOME/redteam/toolkit/dirsearch/dirsearch` | v0.5.0 | Python；需用户另行配置，路径仅供参考 |
 | **gobuster** | `/usr/bin/gobuster` | — | 轻量稳定，dir/dns/vhost 三模式 |
 
 ## 一、feroxbuster（首选：递归 + 自动过滤）
@@ -68,7 +68,9 @@ gobuster dir -u https://target -w /usr/share/seclists/Discovery/Web-Content/comm
   -x php,asp,aspx,jsp,zip,bak -t 30 -k -o runs/gobuster-target.txt
 ```
 
-## 字典（本机已有，优先用这些）
+## 字典路径示例
+
+本插件不包含这些字典，使用前须核对文件是否存在。
 
 | 用途 | 路径 |
 | --- | --- |
