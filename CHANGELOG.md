@@ -9,4 +9,4 @@
 - 版本及补丁诊断报告导出。
 - 跟随宿主外观的控制面板。
 
-目标模型：DeepSeek-V4.1-Flash 1017。宿主：DeepSeek Harness 0.2.1-rc.2。
+目标模型：DeepSeek-V4.1-Flash-1017。宿主：DeepSeek Harness 0.2.1-rc.2。

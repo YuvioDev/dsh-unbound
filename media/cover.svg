@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640">
 <rect width="1600" height="640" fill="#111113"/>
 <g font-family="Segoe UI, Microsoft YaHei, sans-serif">
-<text x="88" y="105" font-size="19" fill="#b8b8be" letter-spacing="3">DEEPSEEK 1017</text>
+<text x="88" y="105" font-size="19" fill="#b8b8be" letter-spacing="2">DEEPSEEK V4.1 FLASH / 1017</text>
 <text x="80" y="266" font-size="108" fill="#f8f8fa" font-weight="600" letter-spacing="-5">DSH Unbound</text>
 <text x="88" y="335" font-size="34" fill="#c8c8ce" font-weight="400">模型破甲工具</text>
 <path d="M88 470H758" stroke="#3b3b40"/>

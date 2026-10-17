@@ -16,7 +16,7 @@ npm run pack:release   # 检查并生成安装包
 
 ## 兼容与维护记录
 
-DSH Unbound 在继承核心补丁体系的基础上，针对 **DeepSeek-V4.1-Flash 1017 与 Harness 0.2.1-rc.2** 组合开展兼容修复、维护流程调整和回归验证。主要改动包括：
+DSH Unbound 在继承核心补丁体系的基础上，针对 **DeepSeek-V4.1-Flash-1017 与 Harness 0.2.1-rc.2** 组合开展兼容修复、维护流程调整和回归验证。主要改动包括：
 
 | 技术改动 | 解决的问题 |
 | --- | --- |

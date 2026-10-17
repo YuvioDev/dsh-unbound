@@ -1,6 +1,14 @@
 # 适用范围
 
-DSH Unbound 1.0.0 面向 DeepSeek-V4.1-Flash 1017 与 DeepSeek Harness 0.2.1-rc.2。
+DSH Unbound 1.0.0 面向 DeepSeek-V4.1-Flash-1017 与 DeepSeek Harness 0.2.1-rc.2。
+
+## 版本识别
+
+模型系列为 **DeepSeek V4.1 Flash**；**1017** 标识其于 2026-10-17 发布的更新，完整名称为 `DeepSeek-V4.1-Flash-1017`，见[官方日志](https://api-docs.deepseek.com/updates/)。插件的 `1.0.0` 与宿主的 `0.2.1-rc.2` 是另外两个独立版本号。
+
+官方 API 的 `deepseek-flash` 是指向最新模型的调用名称，不是固定锁定 1017 的版本承诺。模型服务更新后，应重新核对实际提供的模型版本及行为；第三方供应商的同名映射需以其说明为准。
+
+官方对模型的宿主建议是 Harness 0.2.1-rc.1 或更新版本；本插件仅将已记录的 0.2.1-rc.2 纳入验证范围。模型选择、宿主补丁匹配和实际运行效果应分别核对，版本名称相符不代表全部外部工具已验证。
 
 ## 运行边界
 

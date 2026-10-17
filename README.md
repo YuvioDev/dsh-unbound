@@ -1,8 +1,10 @@
-# DSH Unbound · DeepSeek 1017 破甲增强
+# DSH Unbound · DeepSeek V4.1 Flash（1017）破甲增强
 
-**自定义模型交互，扩展本地执行。为 DeepSeek-V4.1-Flash 1017 提供提示词注入、宿主补丁与完整的变更管理入口。**
+**自定义模型交互，扩展本地执行。为 DeepSeek-V4.1-Flash-1017 提供提示词注入、宿主补丁与完整的变更管理入口。**
 
 ![DSH Unbound](media/cover-dark.png)
+
+本版面向 **DeepSeek V4.1 Flash 的 1017 更新版本**，官方完整名称为 **DeepSeek-V4.1-Flash-1017**。其中，`1017` 是对应 **2026 年 10 月 17 日更新**的模型版本后缀，详见[官方更新日志](https://api-docs.deepseek.com/updates/)。
 
 ## 功能总览
 
@@ -50,7 +52,14 @@
 
 ## 安装
 
-版本 **1.0.0** · 目标模型 **DeepSeek-V4.1-Flash 1017** · 已验证宿主 **DeepSeek Harness 0.2.1-rc.2**。
+| 项目 | 本版适用信息 |
+| --- | --- |
+| 模型名称 | DeepSeek V4.1 Flash |
+| 模型更新版本 | 1017，完整标识 `DeepSeek-V4.1-Flash-1017` |
+| 宿主程序 | DeepSeek Harness 0.2.1-rc.2 |
+| 插件版本 | DSH Unbound 1.0.0 |
+
+模型、宿主和插件分别更新。选择 1017 模型不代表宿主已升级；插件版本号也不代表模型版本。官方建议该模型搭配 Harness 0.2.1-rc.1 或更新版本使用，本插件当前已验证的宿主为 **0.2.1-rc.2**，不据此扩展为支持所有后续版本。
 
 1. 安装上述宿主，确认终端可使用 `dsh` 命令。
 2. 从[发布页](https://github.com/baihangyu486-blip/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz` 并核对随附 SHA256。完全退出 DSH，将下面路径换成实际下载路径后执行：
@@ -120,7 +129,7 @@ Web profile 将 `--profile desktop` 改为 `--profile web`。
 
 DSH Unbound 基于 **小杨 / YuJunZhiXue** 的 [dsh-purge](https://github.com/YuJunZhiXue/dsh-purge) 衍生开发，采用 **1.1.71** 版本、提交 [6c1d638d1bdcc45ede50fc30249c753d58122a51](https://github.com/YuJunZhiXue/dsh-purge/tree/6c1d638d1bdcc45ede50fc30249c753d58122a51) 作为技术基线。核心补丁体系、命令行、演练模块、预设、技能及客户端构建基础由上游提供。本项目明确标注继承范围，保留原作者署名、版权及许可信息，并感谢其公开的技术成果。
 
-截至 2026-10-17，上游 [README](https://github.com/YuJunZhiXue/dsh-purge#readme) 公告暂停维护、不再发布新版本且不保证新版 DSH 兼容，其桌面适用说明列出 Harness 0.2.0-rc.2。**DSH Unbound 针对 DeepSeek-V4.1-Flash 1017 与 Harness 0.2.1-rc.2 的使用需求，在这一基础上开展独立的兼容适配、故障修复、维护机制改进和产品化整理。** 项目保留技术来源，并对本版本新增的实现、验证与发布承担维护工作。
+截至 2026-10-17，上游 [README](https://github.com/YuJunZhiXue/dsh-purge#readme) 公告暂停维护、不再发布新版本且不保证新版 DSH 兼容，其桌面适用说明列出 Harness 0.2.0-rc.2。**DSH Unbound 针对 DeepSeek-V4.1-Flash-1017 与 Harness 0.2.1-rc.2 的使用需求，在这一基础上开展独立的兼容适配、故障修复、维护机制改进和产品化整理。** 项目保留技术来源，并对本版本新增的实现、验证与发布承担维护工作。
 
 本项目的主要成果包括：
 
@@ -136,6 +145,8 @@ DSH Unbound 的支持范围、维护安排和发布记录由本仓库独立管�
 [LICENSE](LICENSE) 保留上游版权声明与 MIT 原文。上游同一基线的 README 另含非商业及许可终止表述，与标准 MIT 存在不一致，尚未取得书面澄清；本项目不据此主张额外授权。完整来源与许可说明见 [NOTICE.md](NOTICE.md)。
 
 ## 反馈与文档
+
+反馈时请同时注明模型完整标识、Harness 版本、插件版本、操作系统、桌面或 Web profile，以及复现步骤和实际报错；不要只填写“最新版”。
 
 普通故障通过 [Issues](https://github.com/baihangyu486-blip/dsh-unbound/issues) 提交版本、复现步骤和脱敏结果；敏感漏洞使用[私密报告](https://github.com/baihangyu486-blip/dsh-unbound/security/advisories/new)。
 
