@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {createRequire} from 'node:module';
+const args=process.argv.slice(2),get=k=>args[args.indexOf(k)+1];
+if(!args.includes('--profile'))throw Error('Usage: node scripts/activate-profile.mjs --profile desktop|web [--home PATH]');
+const profile=get('--profile');if(!/^[a-zA-Z0-9_-]+$/.test(profile))throw Error('Invalid profile name');
+const home=path.resolve(args.includes('--home')?get('--home'):process.env.DSH_HOME||path.join(os.homedir(),'.dsh'));
+const file=path.join(home,'profiles',profile,'package.json');
+const pkg=JSON.parse(fs.readFileSync(file,'utf8'));
+if(!pkg.dependencies?.['dsh-unbound']&&!pkg.devDependencies?.['dsh-unbound'])throw Error('Install the dsh-unbound package into this profile first');
+createRequire(file).resolve('dsh-unbound/package.json');
+const bundles=pkg.dsh?.profile?.bundles;
+if(!Array.isArray(bundles))throw Error('Unrecognized profile manifest: expected dsh.profile.bundles');
+const next=bundles.filter(b=>b!=='dsh-purge'&&b!=='dsh-unbound');next.push('dsh-unbound');
+if(JSON.stringify(next)===JSON.stringify(bundles)){console.log('DSH Unbound is already registered.');process.exit(0)}
+const backup=file+'.unbound-'+Date.now()+'.bak';fs.copyFileSync(file,backup,fs.constants.COPYFILE_EXCL);
+pkg.dsh.profile.bundles=next;
+const temp=file+'.'+process.pid+'.tmp';fs.writeFileSync(temp,JSON.stringify(pkg,null,2)+'\n');fs.renameSync(temp,file);
+console.log('Registered DSH Unbound; previous manifest backed up. Restart DSH.');

@@ -1,0 +1,573 @@
+[
+  {
+    "id": 1,
+    "name": "WORKSPACE_CONTEXT_INTRO",
+    "file": "agent-instructions"
+  },
+  {
+    "id": 2,
+    "name": "REPLACEMENT_WORKSPACE_CONTEXT_INTRO",
+    "file": "agent-instructions"
+  },
+  {
+    "id": 3,
+    "name": "SCOPE_INTRO",
+    "file": "agent-instructions"
+  },
+  {
+    "id": 4,
+    "name": "SYSTEM_PROMPT_PERSONA",
+    "file": [
+      "agent-preset",
+      "web-app",
+      "headless",
+      "preset-acp-app",
+      "preset-sdk-app"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "WEB_PRESET_IDENTITY_STRIP",
+    "file": [
+      "preset-standard",
+      "preset-ptc",
+      "preset-cordis",
+      "preset-minimal"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "PRESET_UNRESTRICTED_IDENTITY_STRIP",
+    "file": [
+      "preset-unrestricted"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "PRESET_SHELL_NETWORK",
+    "file": [
+      "preset-minimal",
+      "preset-sdk-minimal"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "PRESET_BASH_MIRROR_LINE",
+    "file": [
+      "preset-minimal",
+      "preset-sdk-minimal"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "LIANGSHEN_IDENTITY_LINE",
+    "file": [
+      "preset-liangshen",
+      "preset-liangshen-pkg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "APPROVAL_NEVER_SENTENCE",
+    "file": [
+      "user-approval",
+      "user-approval-invariant"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "SANDBOX_DENY_FILE_WRITE",
+    "file": "sandbox-local"
+  },
+  {
+    "id": 7,
+    "name": "SANDBOX_MODE_DEFAULT",
+    "file": "base"
+  },
+  {
+    "id": 8,
+    "name": "APPROVAL_POLICY_DEFAULT",
+    "file": "base"
+  },
+  {
+    "id": 9,
+    "name": "APPROVAL_AUTO_GRANT",
+    "file": [
+      "user-approval-code",
+      "user-approval-invariant",
+      "user-approval"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "APPROVAL_CONFIG_DEFAULT_NEVER",
+    "file": "user-approval-code"
+  },
+  {
+    "id": 11,
+    "name": "APPROVAL_NEVER_SENTENCE_BYPASS",
+    "file": "user-approval-code"
+  },
+  {
+    "id": 12,
+    "name": "APPROVAL_ASK_SENTENCE_BYPASS",
+    "file": [
+      "user-approval-code",
+      "user-approval",
+      "user-approval-invariant"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "ESCALATION_WIDENING_EXEMPT",
+    "file": "escalation"
+  },
+  {
+    "id": 14,
+    "name": "ESCALATION_GRANT_UNCONDITIONAL",
+    "file": "escalation"
+  },
+  {
+    "id": 15,
+    "name": "SANDBOX_CONFINE_PASSTHROUGH",
+    "file": "sandbox-local"
+  },
+  {
+    "id": 16,
+    "name": "FS_FENCE_DISABLED",
+    "file": "fs-sandbox"
+  },
+  {
+    "id": 17,
+    "name": "FS_OBSERVATION_INTENT_FREE",
+    "file": "fs-observation-policy"
+  },
+  {
+    "id": 18,
+    "name": "REPEAT_TOOL_REMINDER_DISABLED",
+    "file": "repeat-tool-reminder"
+  },
+  {
+    "id": 19,
+    "name": "TOOL_RESULT_PRUNER_DISABLED",
+    "file": "compaction-tool-result-pruner"
+  },
+  {
+    "id": 21,
+    "name": "BASH_TIMEOUT_RESTORE",
+    "file": "base"
+  },
+  {
+    "id": 22,
+    "name": "READ_CAPS_RAISED",
+    "file": "tool-fs"
+  },
+  {
+    "id": 23,
+    "name": "SUBAGENT_MAXDEPTH_RAISED",
+    "file": [
+      "subagent",
+      "tool-subagent"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "PRESET_FETCH_ENABLED",
+    "file": [
+      "preset-unrestricted",
+      "preset-standard",
+      "preset-cordis",
+      "preset-ptc",
+      "preset-liangshen",
+      "preset-liangshen-pkg"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "HARNESS_IDENTITY_STRIP",
+    "file": "system-prompt"
+  },
+  {
+    "id": 26,
+    "name": "MINIMAL_PERSONA_PURGE",
+    "file": [
+      "preset-minimal",
+      "preset-sdk-minimal"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "MINIMAL_OFFICIAL_TOOLSET",
+    "file": [
+      "preset-minimal",
+      "preset-sdk-minimal"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "LIANGSHEN_PHASE1_KEEP_INJECT",
+    "file": [
+      "liangshen-tool-bootstrap"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "WEB_SURFACE_IDENTITY_NEUTRAL",
+    "file": [
+      "web-app-lib"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "TOOL_WEB_UNTRUSTED_NEUTRAL",
+    "file": [
+      "tool-web",
+      "tool-web-nested"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "HOOKS_CLAUDE_DENY_ALLOW",
+    "file": [
+      "hooks-claude-code",
+      "hooks-claude-code-nested"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "HOOKS_CODEX_DENY_ALLOW",
+    "file": [
+      "hooks-codex",
+      "hooks-codex-nested"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "TOOL_SHELL_DENIAL_PROMPT",
+    "file": [
+      "tool-bash",
+      "tool-pwsh"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "SANDBOX_HINT_NEUTRAL",
+    "file": "escalation"
+  },
+  {
+    "id": 35,
+    "name": "ESCALATION_NEVER_REJECT",
+    "file": "escalation"
+  },
+  {
+    "id": 36,
+    "name": "TOOL_FS_ESCALATION_SCHEMA",
+    "file": [
+      "tool-fs",
+      "escalation"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "SUBAGENT_SCOPE_LOCK_NEUTRAL",
+    "file": [
+      "subagent",
+      "subagent-types"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "PERSONA_TEXT_PREFIX_ALIAS",
+    "file": "persona"
+  },
+  {
+    "id": 39,
+    "name": "SESSION_V0_PLUGIN_SUMMARY_ALIAS",
+    "file": "session-format-v0"
+  },
+  {
+    "id": 40,
+    "name": "COMPLETE_PROMPT_KEEP_INJECT",
+    "file": [
+      "system-prompt",
+      "system-prompt-nested"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "SETTINGS_LEGACY_API",
+    "file": "settings"
+  },
+  {
+    "id": 45,
+    "name": "OFFICIAL_DESKTOP_UPDATE_HANDOFF",
+    "file": "desktop-shell"
+  },
+  {
+    "id": 46,
+    "name": "OFFICIAL_DESKTOP_UPDATE_ASCII",
+    "file": "desktop-shell"
+  },
+  {
+    "id": 47,
+    "name": "ANTHROPIC_OAUTH_NO_CLAUDE_IDENTITY",
+    "file": [
+      "pi-ai-anthropic-messages"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "TOOL_SHELL_DELETE_MOVE_NEUTRAL",
+    "file": [
+      "tool-bash",
+      "tool-pwsh"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "ANTHROPIC_OAUTH_CLI_NEUTRAL",
+    "file": [
+      "pi-ai-anthropic-messages"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "SESSION_REFERENCE_FRAMING_NEUTRAL",
+    "file": [
+      "session-reference"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "FRESH_SESSION_FULL_ACCESS",
+    "file": [
+      "permission-presets",
+      "permission-presets-types"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "SESSION_LOG_UPLOAD_DEFAULT_OFF",
+    "file": [
+      "session-log-deepseek",
+      "session-log-deepseek-types"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "WEB_SURFACE_PROHIBITION",
+    "file": [
+      "web-app-lib"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "DELIVERABLE_DO_NOT",
+    "file": [
+      "deliverables-prompt"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "SYSTEM_PROMPT_REPLACE_HEAD",
+    "file": [
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "ASSEMBLE_BEFORE_PRESTEP",
+    "file": [
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "SYSTEM_PROMPT_RENDER_GUARD",
+    "file": [
+      "system-prompt",
+      "system-prompt-nested"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "DESKTOP_HOST_CLOSE_NO_FATAL",
+    "file": "desktop-shell"
+  },
+  {
+    "id": 84,
+    "name": "DESKTOP_HOST_CLOSE_CODE0_NO_FAIL",
+    "file": "desktop-shell"
+  },
+  {
+    "id": 67,
+    "name": "AGENT_LOOP_MESSAGES_GUARD",
+    "file": [
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "SYSTEM_NODES_CONTENT_GUARD",
+    "file": [
+      "agent-loop",
+      "session"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "MODEL_STREAM_RELEASE",
+    "file": [
+      "llm-deepseek"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "MESSAGES_SYSTEM_CURRENT",
+    "file": [
+      "llm-deepseek"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "REWIND_HIDE_CUT_ONLY",
+    "file": [
+      "conversation-client"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "REWIND_DROP_SENT_ON_APPEND",
+    "file": [
+      "conversation-client"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "REWIND_RESET_TODOS",
+    "file": [
+      "tool-todo"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "DEEPSEEK_SYSTEM_ROLE",
+    "file": [
+      "pi-ai-completions",
+      "pi-ai-responses-shared"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "REWIND_SKIP_DERIVE",
+    "file": [
+      "session"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "OFFICIAL_AUTO_REVIEW_PASSTHROUGH",
+    "file": [
+      "auto-review"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "OFFICIAL_RUN_CODE_APPROVAL_NEUTRAL",
+    "file": [
+      "dsh-tools",
+      "dsh-tools-ptc"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "OFFICIAL_SANDBOX_POLICY_NEUTRAL",
+    "file": [
+      "sandbox-policy"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "OFFICIAL_TOOL_ASK_FAILOPEN",
+    "file": [
+      "dsh-tools",
+      "dsh-tools-types"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "OFFICIAL_PLAN_MODE_NEUTRAL",
+    "file": [
+      "base",
+      "preset-ptc",
+      "preset-standard",
+      "preset-cordis"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "HOOKS_STOP_STEER_NEUTRAL",
+    "file": [
+      "hooks-claude-code",
+      "hooks-claude-code-nested",
+      "hooks-codex",
+      "hooks-codex-nested"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "HOOKS_PRESTEP_REJECT_NEUTRAL",
+    "file": [
+      "hooks-claude-code",
+      "hooks-claude-code-nested",
+      "hooks-codex",
+      "hooks-codex-nested"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "OVERLAY_RESTORE_FROM_BAK",
+    "file": [
+      "app-boot"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "DESKTOP_SHELL_PROFILE_FALLBACK",
+    "file": "desktop-shell"
+  },
+  {
+    "id": 85,
+    "name": "SESSION_PROMPT_ALWAYS_FOLLOWUP",
+    "file": "api-session-controller"
+  },
+  {
+    "id": 86,
+    "name": "SESSION_STEER_ALWAYS_FOLLOWUP",
+    "file": [
+      "api-session-controller",
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "HUNG_PROMPT_LF_NEEDLE",
+    "file": [
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "HUNG_PROMPT_STRICT_NEEDLE",
+    "file": [
+      "agent-loop"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "DEV_CONTEXT_WEB_SURFACE_NEUTRAL",
+    "file": [
+      "dev-context"
+    ]
+  }
+]

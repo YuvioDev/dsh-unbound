@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import os from 'node:os';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const npm=process.env.npm_execpath||path.join(path.dirname(process.execPath),'node_modules/npm/bin/npm-cli.js');
+if(!fs.existsSync(npm))throw Error('Run this script with npm run pack:release');
+execFileSync(process.execPath,[path.join(root,'scripts/check-release.mjs')],{stdio:'inherit',windowsHide:true});
+execFileSync(process.execPath,['--test',path.join(root,'test/release.test.mjs')],{stdio:'inherit',windowsHide:true});
+const result=execFileSync(process.execPath,[npm,'pack','--ignore-scripts','--json','--pack-destination',path.dirname(root),'--cache',path.join(process.env.UNBOUND_TEST_TMP||os.tmpdir(),'unbound-npm-cache')],{cwd:root,encoding:'utf8',windowsHide:true});
+const meta=JSON.parse(result)[0];
+fs.writeFileSync(path.join(path.dirname(root),'dsh-unbound-package-manifest.json'),JSON.stringify({filename:meta.filename,shasum:meta.shasum,integrity:meta.integrity,files:meta.files.map(f=>f.path)},null,2)+'\n');
+console.log(meta.filename);

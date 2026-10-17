@@ -1,0 +1,17 @@
+node_modules/
+.dsh/
+.env
+.env.*
+*.log
+*.tgz
+*.zip
+*.bak
+*.dshpurge.bak*
+*.copytmp
+*.tmp
+prompt-inject.md
+*credentials*
+work/
+coverage/
+.npm-cache/
+.test-work/

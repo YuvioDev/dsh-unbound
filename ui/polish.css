@@ -1,0 +1,187 @@
+/* Host-aligned controls; all motion stays inside the plugin. */
+.unbound-shell .unbound-top{min-height:58px;padding:16px 22px 12px}
+.unbound-shell .unbound-top strong{font-weight:600;line-height:24px}
+.unbound-shell .unbound-top button{min-height:30px;padding:5px 8px;border-radius:6px}
+.unbound-shell .unbound-nav{gap:8px;min-height:46px;padding:0 16px 10px;border-bottom:1px solid var(--ub-line)}
+.unbound-shell .unbound-nav button{min-width:66px;min-height:32px;padding:6px 14px;border:0;border-radius:6px;font-size:13px;font-weight:400;line-height:20px}
+.unbound-shell .unbound-nav button:hover{color:var(--ub-text);background:var(--ub-input)}
+.unbound-shell .unbound-nav button.is-active{background:var(--ub-hover);color:var(--ub-text);font-weight:550}
+.unbound-shell .dshp-root{padding:18px 22px 24px}
+.unbound-shell .unbound-health{margin:0 0 18px;min-height:30px;gap:16px}
+.unbound-shell .unbound-health .dshp-btn{padding:5px 8px;min-height:30px;margin-right:-8px}
+.unbound-shell .unbound-health .dshp-btn:hover{background:var(--ub-input);color:var(--ub-text)}
+.unbound-shell .dshp-btn{min-height:34px;padding:7px 14px;border-radius:7px;border-color:var(--ub-line);background:var(--ub-input);font-size:13px;font-weight:450;line-height:18px;box-shadow:none}
+.unbound-shell .dshp-btn-primary{background:var(--ub-primary);color:var(--ub-on-primary);border-color:transparent;font-weight:550}
+.unbound-shell .dshp-btn-primary:hover:not(:disabled){opacity:1}
+.unbound-shell .dshp-btn:disabled{opacity:.4}
+.unbound-shell .unbound-prompt{min-height:280px;height:clamp(280px,calc(100dvh - 270px),580px);max-height:none;background:var(--ub-input);border-color:transparent;border-radius:9px;padding:16px;line-height:1.8;margin-bottom:12px;resize:vertical}
+.unbound-shell .unbound-prompt:focus{outline:none;border-color:var(--ub-muted)}
+.unbound-shell .unbound-editor-actions{justify-content:space-between;align-items:center;gap:12px;position:sticky;bottom:0;padding:4px 0;background:var(--ub-bg)}
+.unbound-shell .unbound-editor-actions .dshp-btn-primary{min-width:76px}
+.unbound-shell .unbound-editor-actions .dshp-btn-ghost{border-color:transparent;background:transparent;padding-left:0;color:var(--ub-muted)}
+.unbound-shell .unbound-editor-actions .dshp-btn-ghost:hover{color:var(--ub-text)}
+.unbound-shell .unbound-setting-label{font-weight:550;margin-bottom:10px}
+.unbound-shell .unbound-target{line-height:1.7;margin-bottom:16px}
+.unbound-shell .unbound-main details.unbound-details{border-bottom:1px solid var(--ub-line)}
+.unbound-shell .unbound-main details.unbound-details>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:14px 2px;list-style:none;cursor:pointer}
+.unbound-shell .unbound-main details.unbound-details>summary::-webkit-details-marker{display:none}
+.unbound-shell .unbound-main details.unbound-details>summary::after{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg);opacity:.55;flex:none;margin-right:4px}
+.unbound-shell .unbound-main details.unbound-details[open]>summary::after{transform:rotate(45deg)}
+.unbound-shell .unbound-main details.unbound-details>summary:hover{color:var(--ub-text);background:var(--ub-input)}
+.unbound-shell .unbound-main details.unbound-details[open]>summary{margin-bottom:8px}
+.unbound-shell .unbound-danger-zone{border:0;margin-top:20px;padding-top:0}
+.unbound-shell .unbound-danger-zone .dshp-btn{border-color:transparent;background:transparent;padding-left:0;color:var(--ub-muted)}
+.unbound-shell .unbound-danger-zone .dshp-btn:hover{color:var(--ub-text)}
+.unbound-shell :is(button,summary):focus-visible,.unbound-auth :is(button,input):focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){
+  .unbound-shell[data-open="1"]{animation:unbound-enter 180ms ease-out}
+  .unbound-editor-view:not([hidden]),.unbound-settings-view:not([hidden]){animation:unbound-content 140ms ease-out}
+  .unbound-shell button,.unbound-shell summary::after,.unbound-auth button{transition:transform 120ms ease-out,opacity 120ms ease-out}
+  .unbound-shell button:active:not(:disabled),.unbound-auth button:active:not(:disabled){transform:translateY(1px)}
+  .unbound-shell .unbound-module[open]>:not(summary){animation:unbound-reveal 160ms ease-out}
+  .unbound-auth{animation:unbound-content 160ms ease-out}
+}
+@keyframes unbound-enter{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes unbound-content{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:780px){.unbound-shell .unbound-top{padding-inline:20px}.unbound-shell .dshp-root{padding-inline:20px}.unbound-shell .unbound-prompt{height:clamp(240px,calc(100dvh - 270px),580px);min-height:240px}}
+
+/* Shared control contract for legacy subpanels and exercise surfaces. */
+.unbound-shell .unbound-body button:not(.rt-tab):not(.dshp-group-h),.rt-dock .rt-btn,.unbound-auth .dshp-auth-ops button{box-sizing:border-box;min-height:34px;max-width:100%;padding:7px 12px;border-radius:6px;font-family:inherit;font-size:13px;line-height:18px;white-space:normal;overflow-wrap:anywhere;box-shadow:none;text-shadow:none}
+.unbound-shell .dshp-row,.rt-dock .rt-toolbar,.unbound-auth .dshp-auth-ops{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.unbound-shell .unbound-body :is(.dshp-btn,.rt-btn){background:var(--ub-input)!important;color:var(--ub-text)!important;border:1px solid var(--ub-line)!important}
+.unbound-shell .unbound-body :is(.dshp-btn-primary,.rt-btn-primary){background:var(--ub-primary)!important;color:var(--ub-on-primary)!important;border-color:transparent!important}
+.unbound-shell .unbound-body .dshp-btn-ghost,.unbound-shell .unbound-health .dshp-btn{background:transparent!important;border-color:transparent!important}
+.unbound-shell .unbound-health .dshp-btn{font-size:12px;min-height:30px;padding:4px 8px}
+.unbound-shell .unbound-main details.unbound-details:first-of-type{margin-top:0}
+.unbound-shell .unbound-main details.unbound-details[open]{padding-bottom:18px}
+.unbound-shell .unbound-target{padding:10px 12px;background:var(--ub-input);border-radius:6px;font-size:11px!important}
+.unbound-shell .unbound-danger-zone{margin:0;padding:0}
+.unbound-shell .unbound-editor-actions .dshp-btn-primary{min-width:104px}
+.unbound-shell .unbound-body :is(.rt-card,.rt-pane,.rt-side,.rt-table,.rt-toolbar,.rt-tabs){background:var(--ub-bg)!important;border-color:var(--ub-line)!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.rt-dock{font-family:var(--ds-font-sans,"Segoe UI","Microsoft YaHei UI",system-ui,sans-serif)}
+.rt-dock .rt-btn{background:var(--dsw-alias-bg-layer-2,#292929);color:var(--dsw-alias-label-primary,#eee);border:1px solid var(--dsw-alias-border-l1,#444)}
+.rt-dock .rt-btn-primary{background:var(--dsw-alias-label-primary,#eee);color:var(--dsw-alias-bg-layer-1,#191919);border-color:transparent}
+.rt-dock .rt-tabs{gap:4px;flex-wrap:wrap;padding:8px 12px}
+.rt-dock .rt-tab{min-height:34px;padding:7px 10px;font-size:12px;border-radius:5px;border:0!important;white-space:normal}
+.rt-dock .rt-tab.on{background:var(--dsw-alias-bg-layer-2,#292929)!important;color:var(--dsw-alias-label-primary,#eee)!important}
+.unbound-shell button:disabled,.rt-dock button:disabled,.unbound-auth button:disabled{opacity:.4;cursor:not-allowed}
+.unbound-auth .dshp-auth-ops button.primary{background:var(--dsw-alias-label-primary,#eee)!important;border-color:transparent!important;color:var(--dsw-alias-bg-layer-1,#191919)!important}
+
+.unbound-shell input[type="checkbox"] { accent-color: var(--ub-text); }
+
+.unbound-details .dshp-title { display:none; }
+.unbound-details .dshp-hint:empty, .unbound-details .dshp-editor-empty:empty { display:none; }
+
+.unbound-details .unbound-details { margin-left:12px; border-bottom:0; }
+.unbound-details .unbound-details > summary { min-height:40px; color:var(--ub-muted); }
+
+/* Primary groups and secondary controls have distinct visual levels. */
+.unbound-shell .unbound-main details.unbound-details.unbound-module{border:1px solid var(--ub-line);border-radius:10px;margin:0 0 12px;padding:0;background:var(--ub-bg);overflow:clip}
+.unbound-shell .unbound-main details.unbound-details.unbound-module>summary{min-height:58px;padding:16px 18px;font-size:14px;font-weight:600;background:var(--ub-input);margin:0;border-radius:9px}
+.unbound-shell .unbound-main details.unbound-details.unbound-module>summary:hover{background:var(--ub-hover)}
+.unbound-shell .unbound-main details.unbound-details.unbound-module[open]{padding:0 18px 16px}
+.unbound-shell .unbound-main details.unbound-details.unbound-module[open]>summary{margin:0 -18px 16px;border-bottom:1px solid var(--ub-line);border-radius:9px 9px 0 0}
+.unbound-shell .unbound-main details.unbound-details.unbound-module .unbound-details{margin:0;padding:0 0 0 14px;border:0;border-left:1px solid var(--ub-line);border-radius:0;background:transparent}
+.unbound-shell .unbound-main details.unbound-details.unbound-module .unbound-details + .unbound-details{margin-top:8px}
+.unbound-shell .unbound-main details.unbound-details.unbound-module .unbound-details>summary{min-height:42px;padding:10px 8px;font-size:13px;font-weight:400;color:var(--ub-muted);border-radius:5px}
+.unbound-shell .unbound-main details.unbound-details.unbound-module .unbound-details[open]{padding-bottom:12px}
+.unbound-shell .unbound-main details.unbound-details.unbound-module .unbound-details[open]>summary{color:var(--ub-text);margin-bottom:12px}
+.unbound-shell .unbound-module .dshp-panel{padding:0;border:0;background:transparent}
+.unbound-shell .unbound-module .dshp-row{gap:8px;margin-block:12px}
+.unbound-shell .unbound-module .unbound-health{margin-bottom:10px}
+.unbound-shell .unbound-module .unbound-meta{font-size:12px}
+.unbound-shell .unbound-module .unbound-danger-zone{padding-top:14px;margin-top:14px;border-top:1px solid var(--ub-line)}
+.unbound-shell .unbound-nav{justify-content:flex-start;gap:6px}
+.unbound-shell .unbound-nav button.is-active{box-shadow:none}
+.unbound-shell .unbound-main details.unbound-details.unbound-module:focus-within{border-color:var(--ub-muted)}
+@keyframes unbound-reveal{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+ .unbound-shell .unbound-module>summary::after{transition:transform 160ms ease-out,opacity 120ms ease-out}
+ .unbound-shell .unbound-module>summary:active{opacity:.75}
+ .unbound-shell .unbound-module button:active:not(:disabled){transform:translateY(1px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .unbound-shell *, .unbound-shell *::after{animation:none!important;transition:none!important}
+}
+@media(max-width:400px){
+ .unbound-shell .dshp-root{padding-inline:12px}
+ .unbound-shell .unbound-main details.unbound-details.unbound-module[open]{padding-inline:12px}
+ .unbound-shell .unbound-main details.unbound-details.unbound-module[open]>summary{margin-inline:-12px}
+}
+
+.rt-dock{--ub-bg:var(--dsw-alias-bg-layer-1,#fff);--ub-text:var(--dsw-alias-label-primary,#171717);--ub-input:var(--dsw-alias-bg-layer-2,#f5f5f5);--ub-line:var(--dsw-alias-border-l1,#ddd)}
+/* Shared fields and status labels in both host themes. */
+:is(.unbound-shell,.rt-dock) :is(.dshp-field,.dshp-area,.rt-input,.rt-select,.rt-textarea){background:var(--ub-bg)!important;color:var(--ub-text)!important;border:1px solid var(--ub-line)!important;border-radius:6px;min-width:0;max-width:100%;font:13px/1.6 inherit}
+:is(.unbound-shell,.rt-dock) :is(.dshp-field,.rt-input,.rt-select){min-height:34px;padding:6px 10px}
+:is(.unbound-shell,.rt-dock) :is(.rt-tag,.rt-avail){background:var(--ub-input)!important;color:var(--ub-text)!important;border:1px solid var(--ub-line)!important;border-radius:4px;padding:2px 5px;font-size:11px;line-height:1.4}
+:is(.unbound-shell,.rt-dock) .rt-card{border:1px solid var(--ub-line)!important;border-radius:8px;padding:12px}
+:is(.unbound-shell,.rt-dock) .rt-toolbar{gap:8px;padding:10px 12px}
+:is(.unbound-shell,.rt-dock) .rt-kb-sub{overflow-wrap:anywhere}
+.unbound-shell .dshp-rulelist{border-color:var(--ub-line);border-radius:6px}
+.unbound-shell .dshp-rulebody{min-height:0}
+.unbound-shell .dshp-empty{padding:20px 12px;min-height:0}
+.unbound-shell .dshp-create{padding:10px;border-color:var(--ub-line)}
+.unbound-shell .dshp-create-row{display:flex;flex-wrap:wrap;gap:8px}
+.unbound-shell .unbound-diagnostic-actions{margin-block:4px 12px!important}
+
+body[data-unbound-full="1"] #root{visibility:hidden;pointer-events:none}
+.unbound-shell .unbound-resize[hidden]{display:none}
+
+/* Keep patch categories visible; drill layouts respond to panel width. */
+.unbound-shell{container-type:inline-size;container-name:unbound}
+.unbound-shell .unbound-top .unbound-brand{font-size:14px;font-weight:600;color:var(--ub-text);padding:0;background:transparent;min-height:30px}
+.unbound-patch-total{font-size:13px;color:var(--ub-text);font-variant-numeric:tabular-nums;margin:16px 0 8px}
+.unbound-shell .dshp-group-h{justify-content:space-between;min-height:46px;gap:12px}
+.unbound-shell .dshp-group-h::after{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg);flex:none;opacity:.6}
+.unbound-shell .dshp-group-h[aria-expanded="true"]::after{transform:rotate(45deg)}
+.unbound-shell .dshp-group-h .dshp-count{margin-left:auto}
+.unbound-shell .dshp-table{table-layout:fixed;width:100%}
+.unbound-shell .dshp-table td{overflow-wrap:anywhere}
+.unbound-shell .dshp-table th:first-child{width:40px}
+.unbound-shell .dshp-table th:last-child{width:70px}
+.unbound-shell .unbound-diagnostic-actions{padding-top:8px;border-top:1px solid var(--ub-line)}
+.unbound-shell[data-view="drill"] .unbound-body{display:flex;flex-direction:column;overflow:hidden}
+.unbound-shell .unbound-drill-tools{flex:none;padding:8px 16px}
+.unbound-shell .rt-dock.rt-embedded{flex:1;min-height:0;height:auto!important;max-height:none;min-width:0}
+.unbound-shell .rt-tabs{flex:none}
+.unbound-shell .rt-table{overflow:auto}
+.unbound-shell .rt-row{min-width:680px}
+.unbound-shell .rt-vrow{min-width:720px}
+.unbound-shell .rt-score-row{min-width:520px}
+@container unbound (max-width:700px){
+ .unbound-shell .rt-split{flex-direction:column;min-height:0}
+ .unbound-shell .rt-side{width:auto;max-height:160px;flex:0 0 auto;border-right:0;border-bottom:1px solid var(--ub-line)}
+ .unbound-shell .rt-body{overflow:auto}
+ .unbound-shell .rt-main{flex:1 0 270px;min-height:270px}
+ .unbound-shell .rt-kv{flex-wrap:wrap;gap:6px}
+ .unbound-shell .rt-score-form{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:no-preference){.unbound-shell .dshp-group-h::after{transition:transform 140ms ease-out}}
+
+.unbound-shell .dshp-table th:last-child{width:88px}
+.unbound-shell .dshp-table .dshp-pill{white-space:nowrap;border-radius:5px;padding:3px 7px;font-size:12px}
+@container unbound (max-width:700px){
+ .unbound-shell .rt-split>.rt-list{width:100%;max-height:160px;flex:0 0 auto;border-right:0;border-bottom:1px solid var(--ub-line);overflow:auto}
+}
+
+@container unbound (max-width:700px){
+ .unbound-shell .rt-split>.rt-list{max-height:200px}
+ .unbound-shell .rt-list .rt-item-desc,.unbound-shell .rt-list .rt-item .rt-kb-sub{display:none}
+ .unbound-shell .rt-list .rt-item{padding:6px 8px;margin-bottom:2px}
+}
+
+/* Flat controls with explicit, theme-derived interaction states. */
+:is(.unbound-shell,.unbound-auth,.rt-dock) button{appearance:none;-webkit-appearance:none;background-image:none!important;box-shadow:none!important;text-shadow:none!important;filter:none!important}
+.unbound-shell .unbound-nav button{border:0!important;background:transparent;color:var(--ub-muted)}
+.unbound-shell .unbound-nav button.is-active{background:var(--ub-hover);color:var(--ub-text)}
+.unbound-shell .unbound-nav button:hover:not(:disabled){background:var(--ub-input);color:var(--ub-text)}
+.unbound-shell .unbound-nav button.is-active:hover:not(:disabled){background:var(--ub-hover)}
+.unbound-shell .unbound-body :is(.dshp-btn,.rt-btn):hover:not(:disabled){background:var(--ub-hover)!important;opacity:1}
+.unbound-shell .unbound-body :is(.dshp-btn-primary,.rt-btn-primary):hover:not(:disabled){background:color-mix(in srgb,var(--ub-primary) 88%,var(--ub-bg))!important;color:var(--ub-on-primary)!important}
+.unbound-shell .unbound-body :is(.dshp-btn,.rt-btn):active:not(:disabled){background:color-mix(in srgb,var(--ub-hover) 90%,var(--ub-text))!important}
+.unbound-shell .unbound-body :is(.dshp-btn-primary,.rt-btn-primary):active:not(:disabled){background:color-mix(in srgb,var(--ub-primary) 78%,var(--ub-bg))!important;color:var(--ub-on-primary)!important}
+.unbound-shell .unbound-body :is(.dshp-btn,.rt-btn):disabled{background:var(--ub-input)!important;color:var(--ub-muted)!important;border-color:var(--ub-line)!important;opacity:.65}
+.unbound-shell .unbound-body .dshp-btn-ghost:disabled{background:transparent!important;border-color:transparent!important}
+.unbound-auth .dshp-auth-ops button:hover:not(:disabled){background:var(--dsw-alias-bg-layer-2,#292929)}
+.unbound-auth .dshp-auth-ops button.primary:hover:not(:disabled){background:color-mix(in srgb,var(--dsw-alias-label-primary,#eee) 88%,var(--dsw-alias-bg-layer-1,#191919))!important}
+.unbound-auth .dshp-auth-ops button:disabled{background:var(--dsw-alias-bg-layer-2,#292929)!important;color:var(--dsw-alias-label-secondary,#888)!important;border-color:var(--dsw-alias-border-l1,#444)!important;opacity:.65}

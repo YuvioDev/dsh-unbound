@@ -1,0 +1,84 @@
+{
+  "name": "dsh-unbound",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness community plugin with prompt customization, compatibility patches and a native monochrome interface.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./client.js",
+    "./redteam": "./lib/redteam/index.js",
+    "./redteam/store": "./lib/redteam/store.js",
+    "./redteam/ui": "./lib/redteam/ui.js",
+    "./redteam/tools": "./lib/redteam/tools.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-unbound": "bin/dsh-unbound.js"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "presets",
+    "skills",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "CHANGELOG.md",
+    "SUPPORT.md",
+    "scripts/activate-profile.mjs",
+    "screenshots",
+    "USAGE.md",
+    "DATA.md",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "pack:release": "node scripts/pack-release.mjs",
+    "build": "node scripts/build-client.mjs"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=18",
+    "dsh": "0.2.1-rc.2"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "dshTarget": "0.2.1-rc.2",
+  "unbound": {
+    "updateRepository": "",
+    "upstream": "https://github.com/YuJunZhiXue/dsh-purge",
+    "upstreamVersion": "1.1.71",
+    "upstreamCommit": "6c1d638",
+    "internalNamespace": "dsh-purge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baihangyu486-blip/dsh-unbound.git"
+  },
+  "homepage": "https://github.com/baihangyu486-blip/dsh-unbound#readme",
+  "bugs": {
+    "url": "https://github.com/baihangyu486-blip/dsh-unbound/issues"
+  }
+}
