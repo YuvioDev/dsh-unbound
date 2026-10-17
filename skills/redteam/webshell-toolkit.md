@@ -6,9 +6,9 @@ role: exploit
 enabled: true
 ---
 
-# WebShell 工具包（已就位）
+# WebShell 工具包
 
-目录 `$DSH_HOME/redteam/toolkit/`，Java 25 已安装。
+工具目录示例为 `$DSH_HOME/redteam/toolkit/`；本插件不附带工具或 Java。使用前核对各工具要求的 Java 版本与实际安装环境。
 
 ## 铁律：落地必须是冰蝎马 / 哥斯拉马（加密马）
 

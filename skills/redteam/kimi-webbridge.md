@@ -8,22 +8,14 @@ enabled: true
 
 # Kimi WebBridge（浏览器扩展 + 本地守护进程）
 
-已安装并运行：守护进程 **v2.0.8**（systemd 服务 `kimi-webbridge`，开机自启），监听 `127.0.0.1:10086`，二进制 `~/.kimi-webbridge/bin/kimi-webbridge`。
+本插件不安装或启动 kimi-webbridge。以下示例以守护进程 v2.0.8、systemd 服务 `kimi-webbridge`、监听地址 `127.0.0.1:10086` 和程序路径 `~/.kimi-webbridge/bin/kimi-webbridge` 为参考；使用前核对实际版本、配置和运行状态。
 
-## 当前状态（2026-09 实测）
-- 守护进程：**由 systemd 管理**（`/etc/systemd/system/kimi-webbridge.service`，`enabled` + `active`，`Restart=on-failure`）。
-  查状态：`systemctl status kimi-webbridge`；重启用 `sudo systemctl restart kimi-webbridge`。
-  **不要再手动跑 `kimi-webbridge start`/`upgrade`**，那会起一个游离进程、systemd 反而变 inactive；要升级用
-  `sudo systemctl stop kimi-webbridge && ~/.kimi-webbridge/bin/kimi-webbridge upgrade && sudo systemctl start kimi-webbridge`。
-- 扩展：**Kimi WebBridge v2.0.8，由企业策略自动从 Chrome 应用商店安装**（扩展 ID `fldmhceldgbpfpkbgopacenieobmligc`）。
-  策略文件 `/etc/opt/chrome/policies/managed/kimi-webbridge.json` 与 `/etc/chromium/policies/managed/kimi-webbridge.json`
-  都设置了 `ExtensionSettings.force_installed` + `ExtensionInstallForcelist`，所以 **Chrome / Chromium 的任何 profile 打开即自带扩展、自动更新、常驻启用**。
-- Chrome 137+ 已忽略 `--load-extension`（`--disable-features=…` 的逃生口也失效），所以**不要再走解压加载路线**。
-- 若 `status` 显示 `extension_connected: false`：99% 只是**没有浏览器在运行**，启动任一浏览器（`kimi-chrome` 或直接点 Chrome/Chromium 图标）后 5 秒内会自动连上。
-- 简单取页面内容可优先用技能 `browser-automation`（更快、不依赖浏览器窗口）；**需要复用真实登录态时必须用本技能**
+## 环境核验
+
+本技能不保证服务已启用、浏览器已安装扩展或连接已建立。请根据实际安装方式核对服务、扩展权限和连接状态；不要将断连直接归因于浏览器未启动。下列路径与启动器均须以本机配置为准。
 
 ## 先决条件
-1. 守护进程已运行：`~/.kimi-webbridge/bin/kimi-webbridge status` 应显示 `"running": true`（开机自启，正常无需干预）。
+1. 守护进程已运行：`~/.kimi-webbridge/bin/kimi-webbridge status` 应显示 `"running": true`（是否开机自启取决于本机配置）。
 2. **必须有一个浏览器在运行**（扩展只在浏览器进程存活时维持连接）。启动器 `~/.local/bin/kimi-chrome`：
    - 默认启动 Chrome **默认 profile**（带真实登录态，桥接的价值就在这）；
    - `KIMI_BROWSER=chromium kimi-chrome` 改用 Chromium；`KIMI_PROFILE=/path kimi-chrome` 指定独立 profile（无登录态）。

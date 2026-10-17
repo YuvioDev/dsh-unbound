@@ -15,20 +15,11 @@ enabled: true
 
 **核心原则**：**一次性把话说完，一次要齐**。不要挤牙膏式反复找用户要东西——那是这套引导存在的唯一理由。
 
-## 一、先确认你有没有"工具箱"（npm 版默认没有）
+## 一、确认外部工具环境
 
-npm 版 `dsh-redteam-mode` **不随包分发工具安装脚本与 9 份攻击链技能**（隧道 / 凭据 /
-WebShell / 反弹 Shell / 横向移动 / 未授权利用）。原因：npm 的发布期自动审查会把
-"包在安装后自动下载渗透二进制"判定为恶意行为特征，整包会被 Blocked。
+DSH Unbound 安装包包含技能说明，不包含外部工具二进制或工具箱安装脚本。先核对实际环境与 preflight 结果，不要假定工具已安装。
 
-- **有** `$DSH_HOME/redteam/setup.sh`（自行取过工具箱、或非 npm 安装）→ 按下面第一、二节走；
-- **没有**（`redteam_preflight` 返回里 `onboarding.setup_script.exists=false`）→ 先去项目
-  GitHub Release 下载 `dsh-redteam-mode-<版本>-toolkit.tar.gz`，解压后按其中 README
-  **由用户自己执行**，再到第三节手动配 `FOFA_KEY` 与 VPS；
-- **都不要**也行：只用本包自带的 14 个侦察/检测向技能（`fofa-recon` / `active-scan` /
-  `nuclei-scan` / `web-fingerprint` / `dir-bruteforce` 等）也能开工，只是拿不到需要落地的成果。
-
-> **红线**：本插件**不替用户下载或安装任何安全工具**。需要什么，说清获取位置，由用户自己取、自己执行。
+如使用自行取得的工具箱，应核验来源并遵循其说明；本项目发布页不提供 `dsh-redteam-mode` 工具箱。缺少工具时应如实报告，不应编造下载附件或将技能说明视为已安装工具。安装外部软件须由用户明确授权。
 
 ## 二、要用户提供什么（一次列清，说清"为什么"和"给到哪"）
 
