@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640">
-<rect width="1600" height="640" fill="#ffffff"/>
+<rect width="1600" height="640" fill="#111113"/>
 <g font-family="Segoe UI, Microsoft YaHei, sans-serif">
-<text x="88" y="105" font-size="19" fill="#686870" letter-spacing="3">DEEPSEEK 1017</text>
-<text x="80" y="266" font-size="108" fill="#121214" font-weight="600" letter-spacing="-5">DSH Unbound</text>
-<text x="88" y="335" font-size="34" fill="#505057" font-weight="400">模型破甲工具</text>
-<path d="M88 470H758" stroke="#dedee2"/>
-<text x="88" y="526" font-size="23" fill="#686870">提示词注入</text>
-<text x="330" y="526" font-size="23" fill="#686870">本地补丁</text>
-<text x="568" y="526" font-size="23" fill="#686870">执行调整</text>
+<text x="88" y="105" font-size="19" fill="#b8b8be" letter-spacing="3">DEEPSEEK 1017</text>
+<text x="80" y="266" font-size="108" fill="#f8f8fa" font-weight="600" letter-spacing="-5">DSH Unbound</text>
+<text x="88" y="335" font-size="34" fill="#c8c8ce" font-weight="400">模型破甲工具</text>
+<path d="M88 470H758" stroke="#3b3b40"/>
+<text x="88" y="526" font-size="23" fill="#b8b8be">提示词注入</text>
+<text x="330" y="526" font-size="23" fill="#b8b8be">本地补丁</text>
+<text x="568" y="526" font-size="23" fill="#b8b8be">执行调整</text>
 </g>
 <g transform="translate(955 120)">
-<path d="M45 30V266Q45 378 190 378H236Q380 378 380 266V30" fill="none" stroke="#e2e2e6" stroke-width="2"/>
-<path d="M74 30V266Q74 350 190 350H236Q352 350 352 266V30" fill="none" stroke="#b4b4bd" stroke-width="2"/>
-<path d="M103 30V266Q103 321 190 321H236Q323 321 323 266V30" fill="none" stroke="#73737d" stroke-width="2"/>
-<path d="M132 30V258Q132 292 190 292H236Q294 292 294 258V30" fill="none" stroke="#17171b" stroke-width="22"/>
-<path d="M132 30V94M294 30V94" stroke="#ffffff" stroke-width="27"/>
-<path d="M132 -6V58M294 -6V58" stroke="#17171b" stroke-width="22"/>
-<path d="M213 205V100m-9 10 9-10 9 10" fill="none" stroke="#707079" stroke-width="2"/>
+<path d="M45 30V266Q45 378 190 378H236Q380 378 380 266V30" fill="none" stroke="#36363c" stroke-width="2"/>
+<path d="M74 30V266Q74 350 190 350H236Q352 350 352 266V30" fill="none" stroke="#606067" stroke-width="2"/>
+<path d="M103 30V266Q103 321 190 321H236Q323 321 323 266V30" fill="none" stroke="#a5a5ae" stroke-width="2"/>
+<path d="M132 30V258Q132 292 190 292H236Q294 292 294 258V30" fill="none" stroke="#f4f4f5" stroke-width="22"/>
+<path d="M132 30V94M294 30V94" stroke="#111113" stroke-width="27"/>
+<path d="M132 -6V58M294 -6V58" stroke="#f4f4f5" stroke-width="22"/>
+<path d="M213 205V100m-9 10 9-10 9 10" fill="none" stroke="#aaaab2" stroke-width="2"/>
 </g></svg>
