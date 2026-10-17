@@ -52,7 +52,7 @@
 
 适用模型：**DeepSeek V4.1 Flash 1017**（2026 年 10 月 17 日更新）。已验证宿主：**DeepSeek Harness 0.2.1-rc.2**。插件版本：**1.0.0**。
 
-1. 安装上述宿主，确认终端可使用 `dsh` 命令。
+1. 安装上述宿主，首次打开 DSH 完成桌面配置初始化，并确认终端可使用桌面端提供的 `dsh` 命令。
 2. 从[发布页](https://github.com/baihangyu486-blip/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz` 并核对随附 SHA256。完全退出 DSH，将下面路径换成实际下载路径后执行：
 
 ```powershell

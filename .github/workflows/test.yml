@@ -13,5 +13,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm run build
+      - run: git diff --exit-code -- client.js
       - run: npm test
       - run: npm run check:release
