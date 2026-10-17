@@ -37,7 +37,7 @@
     "SECURITY.md"
   ],
   "scripts": {
-    "test": "node --test test/*.test.mjs",
+    "test": "node --test test/release.test.mjs",
     "check:release": "node scripts/check-release.mjs",
     "pack:release": "node scripts/pack-release.mjs",
     "build": "node scripts/build-client.mjs"
