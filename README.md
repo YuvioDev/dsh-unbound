@@ -1,4 +1,4 @@
-# DSH Unbound
+# DSH Unbound · DeepSeek V4.1 Flash 1017 破甲增强
 
 **DeepSeek V4.1 Flash 1017 破甲插件，集成提示词注入、执行控制与补丁管理。**
 
