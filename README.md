@@ -50,25 +50,23 @@
 
 ## 安装
 
-适用模型：**DeepSeek V4.1 Flash 1017**（2026 年 10 月 17 日更新）。已验证宿主：**DeepSeek Harness 0.2.1-rc.2**。插件版本：**1.0.0**。
+运行环境：**DeepSeek Harness 0.2.1-rc.2**，面向 **DeepSeek V4.1 Flash 1017**。
 
-1.0.0 附件已于 2026-10-17 同步更新。此前下载者请重新下载并核对最新 SHA256；同一版本号不能区分本次更新前后的文件。
-
-已安装过 1.0.0 的用户：请将新包保存到一个未用于安装的新文件夹，再用下面的命令指向该新路径安装。直接覆盖原路径可能命中缓存、保留旧文件；无需先卸载插件。
-
-1. 安装上述宿主，首次打开 DSH 完成桌面配置初始化，并确认终端可使用桌面端提供的 `dsh` 命令。
-2. 从[发布页](https://github.com/YuvioDev/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz` 并核对随附 SHA256。完全退出 DSH，将下面路径换成实际下载路径后执行：
+1. 安装 DSH 宿主，首次打开完成桌面配置初始化，确认终端可使用 `dsh` 命令。
+2. 从[发布页](https://github.com/YuvioDev/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz`。完全退出 DSH，将下面路径换成实际下载路径后执行：
 
 ```powershell
 dsh plugin --profile desktop add "C:\path\to\dsh-unbound-1.0.0.tgz"
 ```
 
-Web profile 将 `--profile desktop` 改为 `--profile web`。
+Web 版将 `--profile desktop` 改为 `--profile web`。
 
-3. 启动 DSH 并启用插件。保留同版宿主和必要配置的备份，在 **Unbound → 设置 → 补丁管理** 核对目标、应用补丁，并按提示重启。
-4. 在 **提示词** 中保存配置，新建对话检查所需功能。外部工具按各自要求单独配置。
+3. 启动 DSH 并启用插件，进入 **Unbound → 设置 → 补丁管理** 应用补丁，并按提示重启。
+4. 在 **提示词** 中保存配置，新建对话确认功能正常。外部工具按各自要求单独配置。
 
-提示词保存在 `$DSH_HOME/prompt-inject.md`，安装不覆盖已有内容。后续使用对应版本的安装包更新。
+提示词保存在 `$DSH_HOME/prompt-inject.md`，安装不覆盖已有内容。安装包校验值见发布页附带的 `DSH-Unbound-SHA256.txt`。
+
+> 若此前下载过同版本安装包，请先删除旧文件再重新下载，避免包管理器复用本地缓存。
 
 ## 使用声明
 
