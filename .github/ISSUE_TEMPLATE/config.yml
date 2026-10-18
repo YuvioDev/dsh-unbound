@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
   - name: 私密安全报告
-    url: https://github.com/baihangyu486-blip/dsh-unbound/security/advisories/new
+    url: https://github.com/YuvioDev/dsh-unbound/security/advisories/new
     about: 涉及漏洞、凭据或敏感数据的问题请通过私密渠道提交。
