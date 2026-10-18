@@ -305,19 +305,14 @@
         toolName: subagent
         modelSelectionSettings: true
         backgroundMode: continuable
-        # 子智能体是角色执行者（信息收集/资产梳理/漏洞发现/漏洞利用/内网渗透），**必须是叶子节点**：
-        # 靠提示词劝"不要再往下委派"是软的——模型完全可以无视。这里直接把委派工具从子会话的
-        # 工具目录里摘掉，子智能体连看都看不到 subagent / subagent_fork / workflow / ralph。
-        # maxDepth 同时收成 1 作为二道保险（默认 3 层太深，会白吃并发预算与上下文）。
+        # 子智能体是角色执行者（信息收集/资产梳理/漏洞发现/漏洞利用/内网渗透），**必须是叶子节点**。
+        # 注意：0.2.1-rc.2 起 dsh-tool-subagent 不再接受 toolFilter —— 写入会让整个预设变成
+        # broken（"toolFilter is no longer supported"），并在模式下拉里被过滤掉。
+        # 这里改用 maxDepth: 1 限制递归深度（默认 3 层太深，会白吃并发预算与上下文）。
         maxDepth: 1
-        # 注意：不能 deny `subagent` —— 它是这一行自己注册的 scoped 工具，不在全局工具库里，
-        # 写进 deny 会让 tools.restrict() 校验失败、整个委派路径报 "unknown global tool"（v0.8.0 踩过）。
-        # 子智能体拿不到 subagent_fork/workflow/ralph，加上 maxDepth: 1，实际已无派发能力。
-        toolFilter:
-          deny:
-            - subagent_fork
-            - workflow
-            - ralph
+        # 说明：不再 deny subagent/subagent_fork/workflow/ralph —— 子智能体在工具列表里仍能看到，
+        # 但 maxDepth: 1 使其无法继续派发。若需要更严格的工具白名单，应在独立 Agent Preset 中
+        # 配置后，用 agentPreset 字段引用（新版推荐做法）。
 
     # Fork omits model selection so provider/model stay equal to the parent and
     # the inherited history remains eligible for KV Cache reuse. This preset
