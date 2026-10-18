@@ -66,8 +66,6 @@ Web 版将 `--profile desktop` 改为 `--profile web`。
 
 提示词保存在 `$DSH_HOME/prompt-inject.md`，安装不覆盖已有内容。安装包校验值见发布页附带的 `DSH-Unbound-SHA256.txt`。
 
-> 若此前下载过同版本安装包，请先删除旧文件再重新下载，避免包管理器复用本地缓存。
-
 ## 使用声明
 
 ### 用途与授权
