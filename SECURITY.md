@@ -2,7 +2,7 @@
 
 ## 报告渠道
 
-请通过 [私密安全报告](https://github.com/baihangyu486-blip/dsh-unbound/security/advisories/new) 提交，或打开 **Security → Advisories → Report a vulnerability**。此入口中的报告不会作为公开 Issue 发布；GitHub 及获授权的维护者、协作者仍可能依平台规则访问相关内容，不应视为匿名或端到端加密通道。
+请通过 [私密安全报告](https://github.com/YuvioDev/dsh-unbound/security/advisories/new) 提交，或打开 **Security → Advisories → Report a vulnerability**。此入口中的报告不会作为公开 Issue 发布；GitHub 及获授权的维护者、协作者仍可能依平台规则访问相关内容，不应视为匿名或端到端加密通道。
 
 若看不到入口，请勿将漏洞详情、有效凭据或真实目标数据提交到公开 Issue；应先通过维护者已核实的联系渠道取得私密报告方式。未核实的邮箱、私信账号和第三方链接不作为本项目指定渠道。
 

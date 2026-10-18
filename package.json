@@ -76,10 +76,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/baihangyu486-blip/dsh-unbound.git"
+    "url": "git+https://github.com/YuvioDev/dsh-unbound.git"
   },
-  "homepage": "https://github.com/baihangyu486-blip/dsh-unbound#readme",
+  "homepage": "https://github.com/YuvioDev/dsh-unbound#readme",
   "bugs": {
-    "url": "https://github.com/baihangyu486-blip/dsh-unbound/issues"
+    "url": "https://github.com/YuvioDev/dsh-unbound/issues"
   }
 }

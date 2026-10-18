@@ -27,7 +27,7 @@ DSH Unbound 在继承核心补丁体系的基础上，针对 **DeepSeek-V4.1-Fla
 | 独立维护与诊断 | 避免沿用上游更新通道覆盖本版本，增加限定字段诊断、注册备份及可重复执行的登记流程。 |
 | 自动验证 | 为兼容、备份、状态、诊断及注册逻辑建立回归检查，并验证客户端构建一致性。 |
 
-上述改动均有对应实现与检查记录，参见[回归检查](https://github.com/baihangyu486-blip/dsh-unbound/blob/main/test/release.test.mjs)及[验证范围](SUPPORT.md)。1.0.0 的 22 项自动检查已在 Windows、Linux 的 Node.js 20/22 四组环境通过；实际宿主运行验证与自动检查的覆盖范围分别记录。维护者反馈在其实际使用环境中表现稳定。
+上述改动均有对应实现与检查记录，参见[回归检查](https://github.com/YuvioDev/dsh-unbound/blob/main/test/release.test.mjs)及[验证范围](SUPPORT.md)。1.0.0 的 22 项自动检查已在 Windows、Linux 的 Node.js 20/22 四组环境通过；实际宿主运行验证与自动检查的覆盖范围分别记录。维护者反馈在其实际使用环境中表现稳定。
 
 “破甲”作用于提示词与本地 Harness，不改变模型权重或服务端配置。实际响应取决于模型、上下文、服务策略及工具环境；补丁状态不等于效果保证，还原不会撤销已经发生的外部操作。
 

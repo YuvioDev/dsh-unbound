@@ -57,7 +57,7 @@
 已安装过 1.0.0 的用户：请将新包保存到一个未用于安装的新文件夹，再用下面的命令指向该新路径安装。直接覆盖原路径可能命中缓存、保留旧文件；无需先卸载插件。
 
 1. 安装上述宿主，首次打开 DSH 完成桌面配置初始化，并确认终端可使用桌面端提供的 `dsh` 命令。
-2. 从[发布页](https://github.com/baihangyu486-blip/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz` 并核对随附 SHA256。完全退出 DSH，将下面路径换成实际下载路径后执行：
+2. 从[发布页](https://github.com/YuvioDev/dsh-unbound/releases/tag/v1.0.0)下载 `dsh-unbound-1.0.0.tgz` 并核对随附 SHA256。完全退出 DSH，将下面路径换成实际下载路径后执行：
 
 ```powershell
 dsh plugin --profile desktop add "C:\path\to\dsh-unbound-1.0.0.tgz"
@@ -101,7 +101,7 @@ Web profile 将 `--profile desktop` 改为 `--profile web`。
 
 对侵害本项目作者或其他权利人合法权益的行为，相关权利人保留依法固定证据、向平台投诉、请求停止侵害、消除影响、恢复名誉、赔偿损失以及提起诉讼的权利；涉嫌违法犯罪的，可向有权机关举报或报案并依法配合调查。项目作者仅在自身权利或合法授权范围内主张权利，不代替受害者处分其索赔权，也不预先认定具体人员构成犯罪。依法不得免除的责任仍按适用法律处理。
 
-合法修改、再分发和收费行为应按适用许可证判断，不能仅因“二改”“商用”或“收费”就认定为诈骗或侵权。本声明不新增禁止商业使用的许可条件；上游许可文件之间尚未澄清的差异仍见 [NOTICE.md](NOTICE.md)。请通过[本项目仓库](https://github.com/baihangyu486-blip/dsh-unbound)核对发行来源与公告。遇到疑似冒用或诈骗，请保留链接、宣传内容、订单及付款凭证；公开反馈须遮盖个人信息和支付数据，涉及财产损失应及时联系交易平台或有权机关。
+合法修改、再分发和收费行为应按适用许可证判断，不能仅因“二改”“商用”或“收费”就认定为诈骗或侵权。本声明不新增禁止商业使用的许可条件；上游许可文件之间尚未澄清的差异仍见 [NOTICE.md](NOTICE.md)。请通过[本项目仓库](https://github.com/YuvioDev/dsh-unbound)核对发行来源与公告。遇到疑似冒用或诈骗，请保留链接、宣传内容、订单及付款凭证；公开反馈须遮盖个人信息和支付数据，涉及财产损失应及时联系交易平台或有权机关。
 
 ### 操作、数据与事件风险
 
@@ -111,7 +111,7 @@ Web profile 将 `--profile desktop` 改为 `--profile web`。
 
 仅处理必要且有权处理的数据。模型服务、连接器及外部工具可能接收输入和结果，应确认接收方、留存、保密及跨境要求。提示词、会话、日志、导出和备份可能形成多个副本，卸载不等于全部清除。诊断按限定字段导出、不自动上传，提交前仍须检查；手动附加的截图和日志需自行脱敏。
 
-发现越界、异常负载、数据误发或安全事件，应停止相关任务、保全合法证据，并按需要撤销凭据、限制访问、履行通知及报告义务。调查和复现仍须授权，不得以排错为由扩大访问或销毁记录。敏感问题通过[私密安全报告](https://github.com/baihangyu486-blip/dsh-unbound/security/advisories/new)提交，不在公开 Issue 中披露。
+发现越界、异常负载、数据误发或安全事件，应停止相关任务、保全合法证据，并按需要撤销凭据、限制访问、履行通知及报告义务。调查和复现仍须授权，不得以排错为由扩大访问或销毁记录。敏感问题通过[私密安全报告](https://github.com/YuvioDev/dsh-unbound/security/advisories/new)提交，不在公开 Issue 中披露。
 
 ### 保证与免责
 
@@ -145,7 +145,7 @@ Web profile 将 `--profile desktop` 改为 `--profile web`。
 - **界面与交互**：重新组织配置入口、面板布局和演练工作区，改进尺寸适配、按钮反馈及补丁明细展示，集中呈现配置、诊断和恢复操作。
 - **诊断与质量验证**：增加脱敏诊断导出，建立 22 项回归检查及跨平台自动验证，补充构建一致性与敏感文件检查，使故障定位和后续维护具有可复核的依据。
 
-这些改动将兼容问题、修复实现和验证条件对应起来，为同类宿主插件的适配、备份恢复及诊断设计提供工程研究与教学参考。具体实现和验证范围见[开发文档](DEVELOPMENT.md)、[回归用例](https://github.com/baihangyu486-blip/dsh-unbound/blob/main/test/release.test.mjs)与[验证记录](SUPPORT.md)。本仓库独立负责本版本的维护与发布。
+这些改动将兼容问题、修复实现和验证条件对应起来，为同类宿主插件的适配、备份恢复及诊断设计提供工程研究与教学参考。具体实现和验证范围见[开发文档](DEVELOPMENT.md)、[回归用例](https://github.com/YuvioDev/dsh-unbound/blob/main/test/release.test.mjs)与[验证记录](SUPPORT.md)。本仓库独立负责本版本的维护与发布。
 
 感谢原作者提供的核心补丁、命令行、演练模块、预设、技能及构建基础。继承部分的版权和许可继续保留；新增适配与改进不改变原有代码归属。本项目与 DeepSeek 无隶属、认证或背书关系。
 
@@ -155,6 +155,6 @@ Web profile 将 `--profile desktop` 改为 `--profile web`。
 
 反馈时请同时注明模型名称及版本、Harness 版本、插件版本、操作系统、桌面或 Web profile，以及复现步骤和实际报错；不要只填写“最新版”。
 
-普通故障通过 [Issues](https://github.com/baihangyu486-blip/dsh-unbound/issues) 提交版本、复现步骤和脱敏结果；敏感漏洞使用[私密报告](https://github.com/baihangyu486-blip/dsh-unbound/security/advisories/new)。
+普通故障通过 [Issues](https://github.com/YuvioDev/dsh-unbound/issues) 提交版本、复现步骤和脱敏结果；敏感漏洞使用[私密报告](https://github.com/YuvioDev/dsh-unbound/security/advisories/new)。
 
 [完整使用规范](USAGE.md) · [数据处理](DATA.md) · [安全报告指引](SECURITY.md) · [验证范围](SUPPORT.md) · [开发与贡献](DEVELOPMENT.md)
